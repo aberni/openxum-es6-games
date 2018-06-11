@@ -1,4 +1,3 @@
 Antoine Steichen
 Nicolas Dausque
-
-tests
+Arthur Detant
