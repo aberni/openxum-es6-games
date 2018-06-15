@@ -9,17 +9,17 @@
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script type="module">
-      import OpenXum from "/lib/openxum-browser/index.mjs";
+        import OpenXum from "/lib/openxum-browser/index.mjs";
 
-      window.OpenXum = OpenXum;
+        window.OpenXum = OpenXum;
     </script>
 </head>
 <body>
 <div class="page">
-<div class="container" id="main"></div>
+    <div class="container" id="main"></div>
 </div>
 <script>
-  $(document).ready(function () {
+    $(document).ready(function () {
 //    new OpenXum.GamePage(OpenXum.Invers, 'invers', OpenXum.Invers.Color.RED, OpenXum.Invers.Color.RED,
 //        OpenXum.Invers.Color.YELLOW, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Invers.GameType.STANDARD, '', '', '', false);
 //    new OpenXum.GamePage(OpenXum.Dvonn, 'dvonn', OpenXum.Dvonn.Color.BLACK, OpenXum.Dvonn.Color.BLACK,
@@ -31,10 +31,10 @@
 //    new OpenXum.GamePage(OpenXum.Kamisado, 'kamisado', OpenXum.Kamisado.Color.BLACK, OpenXum.Kamisado.Color.BLACK,
 //      OpenXum.Kamisado.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Kamisado.GameType.SIMPLE, '', '', '', false);
 //    new OpenXum.GamePage(OpenXum.Hnefatafl, 'hnefatafl', OpenXum.Hnefatafl.Color.BLACK, OpenXum.Hnefatafl.Color.BLACK,
-//     OpenXum.Hnefatafl.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Hnefatafl.GameType.STANDARD, '', '', '', false);
-    new OpenXum.GamePage(OpenXum.Dakapo, 'dakapo', OpenXum.Dakapo.Color.BLACK, OpenXum.Dakapo.Color.BLACK,
-        OpenXum.Dakapo.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', 0, '', '', '', false);
-  });
+//      OpenXum.Hnefatafl.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Hnefatafl.GameType.STANDARD, '', '', '', false);
+     new OpenXum.GamePage(OpenXum.Dakapo, 'dakapo', OpenXum.Dakapo.Color.BLACK, OpenXum.Dakapo.Color.BLACK,
+            OpenXum.Dakapo.Color.WHITE, OpenXum.GameType.GUI, '-1', 0, '', '', '', false);
+    });
 </script>
 </body>
 </html>
