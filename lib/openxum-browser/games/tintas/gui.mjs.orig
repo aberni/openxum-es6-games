@@ -4,7 +4,6 @@ import OpenXum from '../../openxum/gui.mjs';
 import * as myColor from '../../../openxum-core/games/tintas/color.mjs';
 import Engine from '../../../openxum-core/games/tintas/engine.mjs';
 import Move from '../../../openxum-core/games/tintas/move.mjs';
-import Player from '../../../openxum-core/games/tintas/player.mjs';
 // ...
 
 const rows = [[0],[1,2,3],[4,5,6],[7,8,9],[10,11,12,13],[14,15,16,17],[18,19,20,21],[22,23,24,25,26],
@@ -21,8 +20,7 @@ class Gui extends OpenXum.Gui {
         this._c=0;
         this._played=false;
         this._pawn=49;
-        this._current=Player.PLAYER_1;
-    }
+        this._id=49;
 
     draw() { // final version
         // La méthode principale de la classe qui se charge de dessiner à l'écran
@@ -86,6 +84,7 @@ class Gui extends OpenXum.Gui {
         for(let i=1;i<6;i=i+1) {
             this._context.lineTo(xx[i],yy[i]);
         }
+
         this._context.closePath();
         this._context.fill();
         this._context.stroke();
@@ -97,10 +96,12 @@ class Gui extends OpenXum.Gui {
         this._context.closePath();
         this._context.fill();
         this._context.stroke();
+
     }
 
     _get_click_position(e) { // get the x and y coordinates of a click
         let rect = this._canvas.getBoundingClientRect();
+
         return {x: (e.clientX - rect.left) * this._scaleX, y: (e.clientY - rect.top) * this._scaleY};
     }
 
@@ -120,6 +121,7 @@ class Gui extends OpenXum.Gui {
                 return tab[i]; // return the id of the cell
             }
         }
+
         return null;
     }
 
@@ -139,6 +141,8 @@ class Gui extends OpenXum.Gui {
         //}
 
     }
+
+
 
     _round_rect(x, y, width, height, radius, fill, stroke) {
         if (typeof stroke === "undefined") {
@@ -166,13 +170,6 @@ class Gui extends OpenXum.Gui {
         }
     }
 
-    current_color(){
-        return this._current;
-    }
-
-    color(){
-        return this._current;
-    }
 
 
     get_move() {
