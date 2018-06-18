@@ -74,8 +74,7 @@ class Board {
     get_id_at_coord(c){ // compare the coordinates with coordinates of each cells and return the id of the cell, -1 if not found
         for(let id=0;id<49;id+=1) {
             let comp=this._board[id].get_coordinates();
-            //console.log("identifiant teste : ",id);
-            //console.log(comp,c);
+            console.log("identifiant teste : ",id);
             if(comp.get_pos_x()===c.get_pos_x() && comp.get_pos_y()===c.get_pos_y() && comp.get_pos_z()===c.get_pos_z()){
                 return id;
             }
@@ -83,11 +82,19 @@ class Board {
         return -1;
     }
 
+    get_coord_at_id(id){
+        return this._board[id].get_coordinates();
+    }
+
     // final version
     get_cell_by_coord(c){ // compare the coordinates with coordinates of each cells and return the id of the cell, -1 if not found
+<<<<<<< HEAD
         console.log("c : "+c);
         let coord_cell = this.get_id_at_coord(c);
         console.log("coord_cell : "+coord_cell);
+=======
+        let coord_cell = get_id_at_coord(c);
+>>>>>>> origin/dev3
         if(c.is_valid()) {
             return this._board[coord_cell];
         }
@@ -95,7 +102,7 @@ class Board {
     }
 
     // final version
-    get_one_move(color,matrice){
+    _get_one_move(color,matrice){
         let coordinates;
         coordinates=new Coordinates(this._id_pawn); //get the coordinates of _idpawn
         let id=this._id_pawn;
@@ -140,12 +147,40 @@ class Board {
             return this._get_move_spe();
         }
         const tr_mat=[[-1,-1,0],[0,-1,-1],[1,0,-1],[1,1,0],[0,1,1],[1,0,1]];
+<<<<<<< HEAD
+        let tab_move=new Array();
+        if(is_valid(this._id_pawn)) { // Check if the pawn is already placed
+            let id=-1;
+            for (let j=0;j<tr_mat.length;j=j+1){
+                id = this.get_one_move_test(color, tr_mat[j]);
+                if(is_valid(id)){
+                    tab_move.push(new Move(this._id_pawn,id));
+                }
+            }
+            if(tab_move.length>0){ // if we can play
+                console.log("tab retourné : "+tab_move);
+                return tab_move;
+            }
+            else if(is_valid(color)){
+                console.log("tab retourné : "+tab_move);
+                return tab_move;
+            }
+            else{ // if there is no move available in each direction
+                for(let i=0;i<49;i+=1){
+                    if(is_color(this._board[i].get_color())){
+                        tab_move.push(new Move(this._id_pawn,this._board[i])); // the pawn can move to all the cells which are playable
+                    }
+                }
+                console.log("tab retourné : "+tab_move);
+                return tab_move;
+=======
         let tab_move=[];
         let id=-1;
         for (let j=0;j<tr_mat.length;j=j+1){
             id = this._get_one_move(color, tr_mat[j]);
             if(is_valid(id)){
                 tab_move.push(new Move(this._id_pawn,id));
+>>>>>>> origin/dev3
             }
         }
 
@@ -153,6 +188,7 @@ class Board {
             if(is_valid(color)){
                 tab_move.push(new Move(this._id_pawn,50));
             }
+            console.log("tab retourné : "+tab_move);
             return tab_move;
         }
 
@@ -165,7 +201,11 @@ class Board {
     }
 
     //final version
+<<<<<<< HEAD
+    apply_move(move){// Apply the move to the board
+=======
     apply_move(move){ // Apply the move to the board
+>>>>>>> origin/dev3
         let color=this._board[move.get_to()].get_color();
         if(is_valid(this._id_pawn)) {
             this._board[this._id_pawn].set_color(7);
@@ -173,9 +213,12 @@ class Board {
             console.log(this._board[this._id_pawn].get_color());
         }
         this._board[move.get_to()].set_color(8);
+<<<<<<< HEAD
         console.log("pawn:");
         console.log(this._board[move.get_to()]);
         this._id_pawn=move.get_to();
+=======
+>>>>>>> origin/dev3
         return color;
     }
 
@@ -251,22 +294,22 @@ class Board {
         const tr_mat=[[-1,-1,0],[0,-1,-1],[1,0,-1],[1,1,0],[0,1,1],[1,0,1]];
         let tab_move=[];
         if(is_valid(this._id_pawn)) { // Check if the pawn is already placed
-            console.log("le pion est sur le plateau on cherche les coups possibles")
+            //console.log("le pion est sur le plateau on cherche les coups possibles")
             let id=-1;
             for (let j=0;j<tr_mat.length;j=j+1){
-                console.log("appel a la fonction de recuperation d'un coup possible dans une direction");
+                //console.log("appel a la fonction de recuperation d'un coup possible dans une direction");
                 id = this.get_one_move_test(color, tr_mat[j]);
-                console.log("un des coups possibles :",id);
+                //console.log("un des coups possibles :",id);
                 if(is_valid(id)){
                     tab_move.push(new Move(this._id_pawn,id));
                 }
             }
             if(tab_move.length>0){ // if we can play
-                console.log(tab_move);
+                //console.log(tab_move);
                 return tab_move;
             }
             else if(is_valid(color)){
-                console.log(tab_move);
+                //console.log(tab_move);
                 return tab_move;
             }
             else{ // if there is no move available in each direction
@@ -275,7 +318,7 @@ class Board {
                         tab_move.push(new Move(this._id_pawn,this._board[i])); // the pawn can move to all the cells which are playable
                     }
                 }
-                console.log(tab_move);
+                //console.log(tab_move);
                 return tab_move;
             }
         }
@@ -284,7 +327,7 @@ class Board {
             for(i=0;i<49;i+=1){
                 tab_move.push(new Move(this._id_pawn,i)); // the pawn can move to all the cells
             }
-            console.log(tab_move);
+            //console.log(tab_move);
             return tab_move;
         }
     }
@@ -292,6 +335,7 @@ class Board {
     apply_move_test(Move){ // Apply the move to the board
         if(is_valid(this._id_pawn)) {
             this._board[this._id_pawn].set_color(7);
+
         }
         this._board[Move.get_to()].set_color(8);
         console.log(this._board);
