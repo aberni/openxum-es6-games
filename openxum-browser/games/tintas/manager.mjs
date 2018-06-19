@@ -2,7 +2,6 @@
 
 import OpenXum from '../../openxum/manager.mjs';
 import Tintas from '../../../openxum-core/games/tintas/index.mjs';
-import Player from '../../../openxum-core/games/tintas/player.mjs';
 
 class Manager extends OpenXum.Manager {
     constructor(e, g, o, s) {
@@ -34,19 +33,22 @@ class Manager extends OpenXum.Manager {
 
     get_winner_color() {
         let a=this.engine().winner_is();
-        console.log(a);
-        if(a===Player.PLAYER_1){
-            return "player 1";
+        if(a==Player.PLAYER_1){
+            return a;
+            console.log("winer is player 1")
         }
-        if(a===Player.PLAYER_2){
-            return "player 2";
+        if(a==Player.PLAYER_2){
+            console.log("winer is player 2")
+            return a;
         }
+        console.log("winer is undefined");
         return a;
 
 
     }
 
     process_move() {
+        console.log("process_move   ");
     }
 
 
