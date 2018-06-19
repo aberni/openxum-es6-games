@@ -1,8 +1,8 @@
 import lib from '../lib/openxum-core/openxum';
 
-let e = new lib.OpenXum.Mixtour.Engine(0, lib.OpenXum.Mixtour.Color.BLACK);
-let p1 = new lib.OpenXum.MCTSPlayer(lib.OpenXum.Mixtour.Color.BLACK, e);
-let p2 = new lib.OpenXum.Mixtour.Player(lib.OpenXum.Mixtour.Color.WHITE, e);
+let e = new lib.OpenXum.Mixtour.Engine(0);
+let p1 = new lib.OpenXum.MCTSPlayer(lib.OpenXum.Mixtour.Color.WHITE, e);
+let p2 = new lib.OpenXum.Mixtour.Player(lib.OpenXum.Mixtour.Color.BLACK, e);
 let p = p1;
 let moves = [];
 
