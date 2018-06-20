@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="qunit-2.6.1.css">
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="qunit-2.6.1.js"></script>
+<script type="module">
+  import lib from "/lib/openxum-core/index.mjs";
+
+  window.OpenXum = lib.OpenXum;
+</script>
+
+<script>
+
+  QUnit.test("Le tableau des towers est-il bien vide lors de l'instanciation du jeu ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    assert.ok(engine._towers.length === 0, "TRUE")
+  });
+
+  QUnit.test("Le couleur du pion est-elle bien Noire puis Blanche lors de l'utilisation de la fonction current_color() ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    let color_black = window.OpenXum.Mixtour.Color.BLACK;
+    let color_white = window.OpenXum.Mixtour.Color.WHITE;
+    engine._color = color_black;
+    assert.ok(engine.current_color() === color_black, "La première couleur est bien BLACK")
+    engine._color = color_white;
+    assert.ok(engine.current_color() === color_white, "La deuxième couleur est bien WHITE")
+  });
+
+  QUnit.test("L'affichage de la couleur du pion est-elle bien Noire puis Blanche lors de l'utilisation de la fonction current_color_string() ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    let color_black = window.OpenXum.Mixtour.Color.BLACK;
+    let color_white = window.OpenXum.Mixtour.Color.WHITE;
+    engine._color = color_black;
+    assert.ok(engine.current_color_string() === "Black", "La première couleur est bien BLACK")
+    engine._color = color_white;
+    assert.ok(engine.current_color_string() === "White", "La deuxième couleur est bien WHITE")
+  });
+
+  QUnit.test("Le nom du jeu est-il bien 'Mixtour' lors de l'instanciation du jeu ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    assert.ok(engine.get_name() === "Mixtour", "Le nom est bien Mixtour")
+  });
+
+  QUnit.test("Le nombre de points du Joueur Noir est-il de 0, 1, 2, 3, 4 puis 5 ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    let points_black = 0;
+    assert.ok(engine.get_black_points() === points_black, "Le nombre de points du Joueur Noir est bien de 0")
+    engine._black_points = 1;
+    points_black = 1;
+    assert.ok(engine.get_black_points() === points_black, "Le nombre de points du Joueur Noir est bien de 1")
+    engine._black_points = 2;
+    points_black = 2;
+    assert.ok(engine.get_black_points() === points_black, "Le nombre de points du Joueur Noir est bien de 2")
+    engine._black_points = 3;
+    points_black = 3;
+    assert.ok(engine.get_black_points() === points_black, "Le nombre de points du Joueur Noir est bien de 3")
+    engine._black_points = 4;
+    points_black = 4;
+    assert.ok(engine.get_black_points() === points_black, "Le nombre de points du Joueur Noir est bien de 4")
+    engine._black_points = 5;
+    points_black = 5;
+    assert.ok(engine.get_black_points() === points_black, "Le nombre de points du Joueur Noir est bien de 5")
+  });
+
+  QUnit.test("Le nombre de points du Joueur Blanc est-il de 0, 1, 2, 3, 4 puis 5 ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    let points_white = 0;
+    assert.ok(engine.get_white_points() === points_white, "Le nombre de points du Joueur Blanc est bien de 0")
+    engine._white_points = 1;
+    points_white = 1;
+    assert.ok(engine.get_white_points() === points_white, "Le nombre de points du Joueur Blanc est bien de 1")
+    engine._white_points = 2;
+    points_white = 2;
+    assert.ok(engine.get_white_points() === points_white, "Le nombre de points du Joueur Blanc est bien de 2")
+    engine._white_points = 3;
+    points_white = 3;
+    assert.ok(engine.get_white_points() === points_white, "Le nombre de points du Joueur Blanc est bien de 3")
+    engine._white_points = 4;
+    points_white = 4;
+    assert.ok(engine.get_white_points() === points_white, "Le nombre de points du Joueur Blanc est bien de 4")
+    engine._white_points = 5;
+    points_white = 5;
+    assert.ok(engine.get_white_points() === points_white, "Le nombre de points du Joueur Blanc est bien de 5")
+  });
+
+  QUnit.test("Le nombre de pions du Joueur Noir et du Joueur Blanc est-il de 25 en début de jeu ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    assert.ok(engine.get_black_piece_amount() === 25 , "Le nombre de pions du Joueur Noir est bien de 25")
+    assert.ok(engine.get_white_piece_amount() === 25 , "Le nombre de pions du Joueur Blanc est bien de 25")
+  });
+
+  QUnit.test("La phase de début de jeu est-elle définie sur MOVE_TOWER ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    let phase = window.OpenXum.Mixtour.Phase.MOVE_TOWER;
+    assert.ok(engine.phase() === phase, "Le phase du début de jeu est bien définie sur MOVE_TOWER")
+  });
+
+  QUnit.test("Le paramètre move_to_avoid est-il bien initialisé à NULL au début du jeu ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    assert.ok(engine._move_to_avoid === null, "Le paramètre est bien initialisé à NULL")
+  });
+
+  QUnit.test("La fonction winner is retourne t-elle bien le joueur correspondant quand il gagne ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    let color_black = window.OpenXum.Mixtour.Color.BLACK;
+    let color_white = window.OpenXum.Mixtour.Color.WHITE;
+    engine._black_points = 5;
+    engine._white_points = 0;
+    assert.ok(engine.winner_is() === color_black, "La fonction retourne bien Black quand le Joueur Noir gagne !")
+    engine._black_points = 0;
+    engine._white_points = 5;
+    assert.ok(engine.winner_is() === color_white, "La fonction retourne bien White quand le Joueur Blanc gagne !")
+  });
+
+  QUnit.test("Le jeu retire-t-il bien les pions de la réserve du Joueur correspondant ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    assert.ok(engine._move_to_avoid === null, "Le paramètre est bien initialisé à NULL")
+  });
+
+  QUnit.test("Le nombre de pieces du Joueur Noir est-il de 25, 24, 23, 22, 21 puis en lors d'un retrait de pions ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    let color_black = window.OpenXum.Mixtour.Color.BLACK;
+    engine._color = color_black;
+    assert.ok(engine.get_black_piece_amount() === 25, "Le nombre de pions du Joueur Noir est bien de 25")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_black_piece_amount() === 24, "Le nombre de pions du Joueur Noir est bien de 24")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_black_piece_amount() === 23, "Le nombre de pions du Joueur Noir est bien de 23")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_black_piece_amount() === 22, "Le nombre de pions du Joueur Noir est bien de 22")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_black_piece_amount() === 21, "Le nombre de pions du Joueur Noir est bien de 21")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_black_piece_amount() === 20, "Le nombre de pions du Joueur Noir est bien de 20")
+  });
+
+  QUnit.test("Le nombre de pieces du Joueur Blanc est-il de 25, 24, 23, 22, 21 puis en lors d'un retrait de pions ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    let color_white = window.OpenXum.Mixtour.Color.WHITE;
+    engine._color = color_white;
+    assert.ok(engine.get_white_piece_amount() === 25, "Le nombre de pions du Joueur Blanc est bien de 25")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_white_piece_amount() === 24, "Le nombre de pions du Joueur Blanc est bien de 24")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_white_piece_amount() === 23, "Le nombre de pions du Joueur Blanc est bien de 23")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_white_piece_amount() === 22, "Le nombre de pions du Joueur Blanc est bien de 22")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_white_piece_amount() === 21, "Le nombre de pions du Joueur Blanc est bien de 21")
+    engine._remove_piece_from_reserve();
+    assert.ok(engine.get_white_piece_amount() === 20, "Le nombre de pions du Joueur Blanc est bien de 20")
+  });
+
+</script>
+
+</body>
+</html>
