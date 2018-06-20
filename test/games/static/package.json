@@ -13,5 +13,8 @@
     "@std/esm": "^0.19.1",
     "express": "^4.9.0",
     "openxum-browser": "^0.0.34"
+  },
+  "devDependencies": {
+    "qunit": "^2.6.1"
   }
 }

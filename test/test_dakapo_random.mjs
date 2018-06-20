@@ -1,17 +1,27 @@
 import lib from '../lib/openxum-core/openxum';
 
-let e = new lib.OpenXum.Dakapo.Engine();
+let cpt=0;
 
-let c, x, y;
-while(e._phase=== lib.OpenXum.Dakapo.Phase.EN_COURS) {
-    c=Math.floor(Math.random() * 3+1);
-    x=Math.floor(Math.random() * 8);
-    y=Math.floor(Math.random() * 8);
+for (let i=0; i<10; i++){
+let e = new lib.OpenXum.Dakapo.Engine(0,0);
+let p1 = new lib.OpenXum.MCTSPlayer('Joueur 1', e);
+//let p2 = new lib.OpenXum.Dakapo.IA.IADakapo.IADakapoPlayer(0, e,1);
+let p2 = new lib.OpenXum.MCTSPlayer('Joueur 2', e);
+let p = p1;
+let moves = [];
 
-    console.log(c , x , y);
-    let move=new lib.OpenXum.Dakapo.Move(c,x,y);
-    e.move(move);
+while (!e.is_finished()) {
+  let move = p.move();
+  moves.push(move);
+  e.move(move);
+  p = p === p1 ? p2 : p1;
+}
+console.log(e.winner_is());
+if(e.winner_is() === 'Joueur 2'){
+  cpt++;
+}
 
 }
 
-console.log(e);
+
+console.log(cpt);
