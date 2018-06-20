@@ -23,6 +23,28 @@
     assert.ok(engine._towers.length === 0, "TRUE")
   });
 
+  QUnit.test("Le nom du jeu est-il bien 'Mixtour' lors de l'instanciation du jeu ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    assert.ok(engine.get_name() === "Mixtour", "Le nom est bien Mixtour")
+  });
+
+  QUnit.test("Le nombre de pions du Joueur Noir et du Joueur Blanc est-il de 25 lors de l'instanciation du jeu ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    assert.ok(engine.get_black_piece_amount() === 25 , "Le nombre de pions du Joueur Noir est bien de 25")
+    assert.ok(engine.get_white_piece_amount() === 25 , "Le nombre de pions du Joueur Blanc est bien de 25")
+  });
+
+  QUnit.test("La phase de début de jeu est-elle définie sur MOVE_TOWER ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    let phase = window.OpenXum.Mixtour.Phase.MOVE_TOWER;
+    assert.ok(engine.phase() === phase, "Le phase du début de jeu est bien définie sur MOVE_TOWER")
+  });
+
+  QUnit.test("Le paramètre move_to_avoid est-il bien initialisé à NULL lors de l'instanciation du jeu ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    assert.ok(engine._move_to_avoid === null, "Le paramètre est bien initialisé à NULL")
+  });
+
   QUnit.test("Le couleur du pion est-elle bien Noire puis Blanche lors de l'utilisation de la fonction current_color() ?",function(assert) {
     let engine = new window.OpenXum.Mixtour.Engine(0);
     let color_black = window.OpenXum.Mixtour.Color.BLACK;
@@ -41,11 +63,6 @@
     assert.ok(engine.current_color_string() === "Black", "La première couleur est bien BLACK")
     engine._color = color_white;
     assert.ok(engine.current_color_string() === "White", "La deuxième couleur est bien WHITE")
-  });
-
-  QUnit.test("Le nom du jeu est-il bien 'Mixtour' lors de l'instanciation du jeu ?",function(assert) {
-    let engine = new window.OpenXum.Mixtour.Engine(0);
-    assert.ok(engine.get_name() === "Mixtour", "Le nom est bien Mixtour")
   });
 
   QUnit.test("Le nombre de points du Joueur Noir est-il de 0, 1, 2, 3, 4 puis 5 ?",function(assert) {
@@ -88,23 +105,6 @@
     engine._white_points = 5;
     points_white = 5;
     assert.ok(engine.get_white_points() === points_white, "Le nombre de points du Joueur Blanc est bien de 5")
-  });
-
-  QUnit.test("Le nombre de pions du Joueur Noir et du Joueur Blanc est-il de 25 en début de jeu ?",function(assert) {
-    let engine = new window.OpenXum.Mixtour.Engine(0);
-    assert.ok(engine.get_black_piece_amount() === 25 , "Le nombre de pions du Joueur Noir est bien de 25")
-    assert.ok(engine.get_white_piece_amount() === 25 , "Le nombre de pions du Joueur Blanc est bien de 25")
-  });
-
-  QUnit.test("La phase de début de jeu est-elle définie sur MOVE_TOWER ?",function(assert) {
-    let engine = new window.OpenXum.Mixtour.Engine(0);
-    let phase = window.OpenXum.Mixtour.Phase.MOVE_TOWER;
-    assert.ok(engine.phase() === phase, "Le phase du début de jeu est bien définie sur MOVE_TOWER")
-  });
-
-  QUnit.test("Le paramètre move_to_avoid est-il bien initialisé à NULL au début du jeu ?",function(assert) {
-    let engine = new window.OpenXum.Mixtour.Engine(0);
-    assert.ok(engine._move_to_avoid === null, "Le paramètre est bien initialisé à NULL")
   });
 
   QUnit.test("La fonction winner is retourne t-elle bien le joueur correspondant quand il gagne ?",function(assert) {
@@ -156,6 +156,11 @@
     assert.ok(engine.get_white_piece_amount() === 21, "Le nombre de pions du Joueur Blanc est bien de 21")
     engine._remove_piece_from_reserve();
     assert.ok(engine.get_white_piece_amount() === 20, "Le nombre de pions du Joueur Blanc est bien de 20")
+  });
+
+  QUnit.test("Le nombre de points des joueurs est-il bien égal à 0 lors de l'instanciation du jeu ?",function(assert) {
+    let engine = new window.OpenXum.Mixtour.Engine(0);
+    assert.ok((engine.get_black_points() === 0 && engine.get_white_points() === 0), "Le nombre de points est bien initialisé à 0 lors de l'instanciation du jeu !")
   });
 
 </script>
