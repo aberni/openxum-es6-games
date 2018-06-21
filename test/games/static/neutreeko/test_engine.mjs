@@ -40,3 +40,23 @@ expectedString = '- 5 - 5 - \n- - 0 - - \n- - - - - \n- - 5 - - \n- 0 - 0 - \n';
 test_state();
 test_current_player(color);
 console.log('test undo_move: ok');
+
+
+//test finish() engine
+//stroke of zero
+let z1 = new lib.OpenXum.Neutreeko.Coordinates(2,1);
+let z2 = new lib.OpenXum.Neutreeko.Coordinates(0,1);
+let move1 = new lib.OpenXum.Neutreeko.Move(z1, z2);
+e.move(move1);
+
+//stroke of five
+
+let c1 = new lib.OpenXum.Neutreeko.Coordinates(2,3);
+let c2 = new lib.OpenXum.Neutreeko.Coordinates(2,0);
+let move2 = new lib.OpenXum.Neutreeko.Move(c1, c2);
+e.move(move2);
+
+stateString = e.getStateString();
+expectedString = '- 5 5 5 - \n0 - - - - \n- - - - - \n- - - - - \n- 0 - 0 - \n';
+test_state();
+console.log('test finish: ok');
