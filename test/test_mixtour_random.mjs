@@ -6,8 +6,8 @@ let black_win = 0;
 let white_win = 0;
 //for (let i = 0; i < 100; ++i) {
   let e = new lib.OpenXum.Mixtour.Engine(0);
-  let p1 = new lib.OpenXum.Mixtour.Player(lib.OpenXum.Mixtour.Color.WHITE, e, 3);
-  let p2 = new lib.OpenXum.Mixtour.Player(lib.OpenXum.Mixtour.Color.BLACK, e, 3);
+  let p1 = new lib.OpenXum.Mixtour.Player(lib.OpenXum.Mixtour.Color.WHITE, e, 4);
+  let p2 = new lib.OpenXum.Mixtour.Player(lib.OpenXum.Mixtour.Color.BLACK, e, 4);
   let p = p1;
   while (!e.is_finished()) {
     let move = p.move();
