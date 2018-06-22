@@ -3,7 +3,7 @@ import lib from '../public/lib/openxum-core/openxum';
 let black_win = 0;
 let white_win = 0;
 
-for (let i = 0; i < 50; ++i) {
+for (let i = 0; i < 5; ++i) {
     let e = new lib.OpenXum.Neutreeko.Engine(lib.OpenXum.Neutreeko.GameType.STANDARD, lib.OpenXum.Neutreeko.Color.BLACK);
     let p1 = new lib.OpenXum.RandomPlayer(lib.OpenXum.Neutreeko.Color.BLACK, e);
     let p2 = new lib.OpenXum.Neutreeko.IA.IAAlphaBeta(lib.OpenXum.Neutreeko.Color.WHITE, e);
