@@ -32,6 +32,7 @@ QUnit.test( "test carre diago", function( assert ) {
     assert.equal( moteur.is_finished(), true);
     assert.equal( moteur.current_color(), moteur.winner_is());
     assert.equal( moteur.current_color(), 'Joueur 2');
+
 });
 
 QUnit.test( "test move list", function( assert ) {
@@ -48,9 +49,5 @@ QUnit.test( "test is_possible", function( assert ) {
     assert.equal( moteur._is_possible(new window.OpenXum.Dakapo.Move(0, 7, 7)), false);
     assert.equal( moteur._is_possible(new window.OpenXum.Dakapo.Move(2, 5, 3)), false);
     assert.equal( moteur._is_possible(new window.OpenXum.Dakapo.Move(3, 5, 3)), true);
-});
 
-/*QUnit.test( "test color list", function( assert ) {
-    var moteur = new window.OpenXum.Dakapo.Engine();
-    assert.equal( moteur._get_color_list()(new window.OpenXum.Dakapo.Move(3, 5, 3)), 3);
-})*/
+});
