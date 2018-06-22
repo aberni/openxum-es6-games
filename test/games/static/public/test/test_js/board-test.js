@@ -41,7 +41,7 @@ QUnit.test( "get_one_move", function( assert ) {
     assert.ok( 1===1, "Passed!" );
 });
 
-QUnit.test( "get_move1", function( assert ) {
+QUnit.test( "get_move : 1", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
     board._id_pawn=29;
@@ -61,9 +61,9 @@ QUnit.test( "get_move1", function( assert ) {
     board._board[36].set_color(6);
     board._board[29].set_color(8);
 
-    let tab1=board.get_move(7); // 10 36 37 21 05
-    let tab2=board.get_move(3); // 37 21 50
-    let tab3=board.get_move(5); // vide
+    let tab1=board.get_move(7);
+    let tab2=board.get_move(3);
+    let tab3=board.get_move(5);
     let tab1_to=[];
     let tab2_to=[];
 
@@ -79,7 +79,7 @@ QUnit.test( "get_move1", function( assert ) {
     assert.deepEqual( tab3[0].get_to(),-1, "Passed!" );
 });
 
-QUnit.test( "get_move2", function( assert ) {
+QUnit.test( "get_move : 2", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
     board._id_pawn=45;
@@ -91,9 +91,9 @@ QUnit.test( "get_move2", function( assert ) {
     board._board[31].set_color(3);
     board._board[45].set_color(8);
 
-    let tab1=board.get_move(7); // 42 37 31
-    let tab2=board.get_move(2); // 42 50
-    let tab3=board.get_move(4); // vide
+    let tab1=board.get_move(7);
+    let tab2=board.get_move(2);
+    let tab3=board.get_move(4);
     let tab1_to=[];
     let tab2_to=[];
 
@@ -109,7 +109,7 @@ QUnit.test( "get_move2", function( assert ) {
     assert.deepEqual( tab3[0].get_to(),-1, "Passed!" );
 });
 
-QUnit.test( "get_move3", function( assert ) {
+QUnit.test( "get_move : 3", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
     board._id_pawn = 23;
@@ -133,9 +133,9 @@ QUnit.test( "get_move3", function( assert ) {
     board._board[14].set_color(3);
     board._board[23].set_color(8);
 
-    let tab1=board.get_move(7); // 14 27 45 41 06 01
-    let tab2=board.get_move(3); // 14 27 50
-    let tab3=board.get_move(6); // vide
+    let tab1=board.get_move(7);
+    let tab2=board.get_move(3);
+    let tab3=board.get_move(6);
     let tab1_to=[];
     let tab2_to=[];
 
@@ -151,7 +151,7 @@ QUnit.test( "get_move3", function( assert ) {
     assert.deepEqual( tab3[0].get_to(),-1, "Passed!" );
 });
 
-QUnit.test( "get_move4", function( assert ) {
+QUnit.test( "get_move : 4", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
     board._id_pawn = 23;
@@ -186,8 +186,8 @@ QUnit.test( "get_move4", function( assert ) {
 
     board._board[23].set_color(8);
 
-    let tab1=board.get_move(7); // 00 02 04 05 06 10 11 13 17 22 23 24 25 26 33 34 35 36 38 39 42 43 44 48
-    let tab2=board.get_move(5); // vide
+    let tab1=board.get_move(7);
+    let tab2=board.get_move(5);
     let tab1_to=[];
 
     for(let i=0;i<tab1.length;i+=1){
@@ -198,16 +198,15 @@ QUnit.test( "get_move4", function( assert ) {
     assert.deepEqual( tab2[0].get_to(),-1, "Passed!" );
 });
 
-QUnit.test( "board_ok1", function( assert ) {
+QUnit.test( "board_ok : 1", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
     assert.ok( board._board_ok(), "Passed!" );
 });
 
-QUnit.test( "board_ok2", function( assert ) {
+QUnit.test( "board_ok : 2", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
-
     board._board[0].set_color(6);
     board._board[4].set_color(6);
     board._board[11].set_color(6);
@@ -216,11 +215,10 @@ QUnit.test( "board_ok2", function( assert ) {
     board._board[36].set_color(6);
     board._board[43].set_color(6);
 
-
     assert.notOk( board._board_ok(), "not ok" );
 });
 
-QUnit.test( "board_ok3", function( assert ) {
+QUnit.test( "board_ok : 3", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
 
@@ -235,7 +233,7 @@ QUnit.test( "board_ok3", function( assert ) {
     assert.notOk( board._board_ok(), "not ok" );
 });
 
-QUnit.test( "board_ok4", function( assert ) {
+QUnit.test( "board_ok : 4", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
 
@@ -250,7 +248,7 @@ QUnit.test( "board_ok4", function( assert ) {
     assert.notOk( board._board_ok(), "not ok" );
 });
 
-QUnit.test( "board_ok5", function( assert ) {
+QUnit.test( "board_ok : 5", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
 
@@ -265,10 +263,19 @@ QUnit.test( "board_ok5", function( assert ) {
     assert.notOk( board._board_ok(), "not ok" );
 });
 
-QUnit.test( "board_ok6", function( assert ) {
+QUnit.test( "board_ok : 6", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     board._random_board();
-
+    board._board[0].set_color(1);
+    board._board[1].set_color(2);
+    board._board[2].set_color(3);
+    board._board[3].set_color(4);
+    board._board[4].set_color(5);
+    board._board[5].set_color(7);
+    board._board[6].set_color(2);
+    board._board[7].set_color(3);
+    board._board[8].set_color(4);
+    board._board[9].set_color(5);
     board._board[32].set_color(6);
     board._board[28].set_color(6);
     board._board[23].set_color(6);
@@ -284,27 +291,32 @@ QUnit.test( "get_move_spe", function( assert ) {
     let board = new window.OpenXum.Tintas.Board();
     let tab=[];
     let tab2=[];
-    //let m=board._get_move_spe().length;
-
     board._random_board();
     board._id_pawn=0;
     board._board[1].set_color(7);
     board._board[8].set_color(7);
     board._board[30].set_color(7);
     board._board[25].set_color(7);
-    console.log(board._board);
+    let m=board._get_move_spe();
     for(let i=0;i<board._board.length;i++){
         if(board._board[i].get_color()!==7){
             tab.push(i);
         }
     }
-/*
-    for(let i=0;i<move.length;i++){
-        tab2.push(move.get_to());
+    for(let i=0;i<m.length;i++){
+        tab2.push(m[i].get_to());
     }
-*/
-    console.log(board._get_move_spe().length);
-    console.log(tab);
-    console.log(tab2);
-    assert.ok( 1===1, "not ok" );
+
+    assert.deepEqual( tab, tab2, "Works" );
+});
+
+QUnit.test( "get_one_move", function( assert ) {
+    let board = new window.OpenXum.Tintas.Board();
+    board._random_board();
+    board._id_pawn=4;
+    board._board[4].set_color(1);
+    board._board[8].set_color(1);
+
+    assert.equal( board._get_one_move(window.OpenXum.Tintas.Color.GREEN,[0,0,0]), 4, "Works in matrix [0,0,0]" );
+    assert.equal( board._get_one_move(window.OpenXum.Tintas.Color.GREEN,[1,1,0]), 8, "Works" );
 });

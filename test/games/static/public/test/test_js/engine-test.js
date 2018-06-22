@@ -38,16 +38,6 @@ QUnit.test( "get_possible_move_list", function( assert ) {
     assert.deepEqual( tab2, [4,11,16,12,5,2], "Pass in id 8" );
 });
 
-/* TO DO
-QUnit.test( "parse", function( assert ) {
-    let engine = new window.OpenXum.Tintas.Engine();
-    engine._board._random_board();
-    let str = [0];
-    console.log(str);
-    assert.equal( engine.parse(str[0]), window.OpenXum.Tintas.Color.YELLOW, "Player 2" );
-});
-*/
-
 QUnit.test( "add_points", function( assert ) {
     let engine = new window.OpenXum.Tintas.Engine();
     engine.add_points(window.OpenXum.Tintas.Color.YELLOW);
@@ -73,7 +63,7 @@ QUnit.test( "have_empty_stack", function( assert ) {
     engine2._player_1[6]=0;
 
     assert.notOk( engine.have_empty_stack(engine._player_1), "Not empty" );
-    assert.ok( engine2.have_empty_stack(engine2._player_2), "Added" );
+    assert.ok( engine2.have_empty_stack(engine2._player_2), "Empty" );
 });
 
 QUnit.test( "player_stack_win", function( assert ) {
