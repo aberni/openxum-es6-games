@@ -53,3 +53,34 @@ expectedString = '- 5 - 5 - \n- - 0 - - \n- - - - - \n- - 5 - - \n0 - - 0 - \n';
 test_state(expectedString);
 test_current_player(opponent_color);
 console.log('test undo_move: ok');
+
+
+
+//test finish() engine
+e = new lib.OpenXum.Neutreeko.Engine(lib.OpenXum.Neutreeko.GameType.STANDARD, color);
+
+//stroke of zero
+
+from = new lib.OpenXum.Neutreeko.Coordinates(2,1);
+to  = new lib.OpenXum.Neutreeko.Coordinates(0,1);
+move = new lib.OpenXum.Neutreeko.Move(from,to);
+e.move(move);
+
+
+//stroke of five
+
+from = new lib.OpenXum.Neutreeko.Coordinates(2,3);
+to = new lib.OpenXum.Neutreeko.Coordinates(2,0);
+move = new lib.OpenXum.Neutreeko.Move(from,to);
+e.move(move);
+
+//stateString = e.getStateString();
+expectedString = '- 5 5 5 - \n0 - - - - \n- - - - - \n- - - - - \n- 0 - 0 - \n';
+test_state(expectedString);
+test_current_player(opponent_color);
+console.log('test finish: ok');
+
+
+// test _verify_moving() engine
+
+
