@@ -22,9 +22,12 @@
 - Lorenzo Canonne
 - Benjamin Cléton
 - Nicolas Dausque
+- Jimmy Denis
 - Arthur Detant
 - François Etienne
+- Zohra Harrat
 - Hugo Labussière
+- Nicolas Leurs
 - Huyghes Quentin
 - Gilles Machuré
 - Antoine Steichen
