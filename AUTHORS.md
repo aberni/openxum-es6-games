@@ -18,8 +18,10 @@
 ### Contributors
 
 - Florian Boissier
+- Théo Bouche
 - Lorenzo Canonne
 - Benjamin Cléton
 - François Etienne
+- Hugo Labussière
 - Huyghes Quentin
 - Gilles Machuré
