@@ -21,7 +21,10 @@
 - Théo Bouche
 - Lorenzo Canonne
 - Benjamin Cléton
+- Nicolas Dausque
+- Arthur Detant
 - François Etienne
 - Hugo Labussière
 - Huyghes Quentin
 - Gilles Machuré
+- Antoine Steichen
