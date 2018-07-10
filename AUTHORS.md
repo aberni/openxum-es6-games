@@ -25,7 +25,9 @@
 - Jimmy Denis
 - Arthur Detant
 - François Etienne
+- Allan Fournier
 - Zohra Harrat
+- Nicolas Kutek
 - Hugo Labussière
 - Nicolas Leurs
 - Huyghes Quentin

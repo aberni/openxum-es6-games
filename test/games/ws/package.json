@@ -13,6 +13,6 @@
     "@std/esm": "^0.19.1",
     "express": "^4.9.0",
     "jsonfile": "^4.0.0",
-    "openxum-core": "^0.0.2"
+    "openxum-core": "^0.0.34"
   }
 }
