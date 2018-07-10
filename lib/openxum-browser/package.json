@@ -12,8 +12,9 @@
     "url": "https://github.com/openxum-team/openxum-es6-games",
     "type": "git"
   },
-  "version": "0.0.35",
+  "version": "0.0.36",
   "dependencies": {
-    "openxum-core": "^0.0.35"
+    "openxum-ai": "^0.0.36",
+    "openxum-core": "^0.0.36"
   }
 }
