@@ -12,9 +12,8 @@
   "dependencies": {
     "@std/esm": "^0.19.1",
     "express": "^4.9.0",
-    "openxum-browser": "^0.0.36"
-  },
-  "devDependencies": {
-    "qunit": "^2.6.1"
+    "openxum-browser": "^0.0.36",
+    "jquery": "^3.3.1",
+    "bootstrap": "^4.1.1"
   }
 }
