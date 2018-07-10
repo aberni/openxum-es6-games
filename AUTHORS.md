@@ -17,6 +17,7 @@
 
 ### Contributors
 
+- Antoine Bernier
 - Florian Boissier
 - Théo Bouche
 - Lorenzo Canonne
@@ -26,10 +27,12 @@
 - Arthur Detant
 - François Etienne
 - Allan Fournier
+- Tahir Gueye
 - Zohra Harrat
 - Nicolas Kutek
 - Hugo Labussière
 - Nicolas Leurs
+- Saad Lyagoubi
 - Huyghes Quentin
 - Gilles Machuré
 - Antoine Steichen
