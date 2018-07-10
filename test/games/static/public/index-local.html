@@ -61,8 +61,25 @@
                 style="width: 600px; height: 600px; padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; display: block; border-radius: 15px; -moz-border-radius: 15px; box-shadow: 8px 8px 2px #aaa;"/>
       </div>
     </div>
-    <div class="modal fade" id="moveListModal" tabindex="-1" role="dialog" aria-labelledby="moveListModal"
-         aria-hidden="true">
+    <div class="modal fade" id="winnerModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+          </div>
+          <div class="modal-body" id="winnerBodyText"></div>
+          <div class="modal-footer">
+            <div class="btn-group">
+              <a class="btn btn-primary active" href="#">New game</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="moveListModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -72,27 +89,7 @@
               <span class="sr-only">Close</span>
             </button>
           </div>
-          <div class="modal-body" id="moveListBody"/>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="winnerModal" tabindex="-1" role="dialog" aria-labelledby="winnerModalLabel"
-         aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close" data-dismiss="modal">
-              <span aria-hidden="true">&times;</span>
-              <span class="sr-only">Close</span>
-            </button>
-          </div>
-          <div class="modal-body" id="winnerBodyText"/>
-          <div class="modal-footer">
-            <div class="btn-group">
-              <a class="btn btn-primary new-game-button" href="#">New game</a>
-            </div>
-          </div>
+          <div class="modal-body" id="moveListBody"></div>
         </div>
       </div>
     </div>
@@ -126,7 +123,7 @@
 //    OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Ordo, 'ordo', OpenXum.Ordo.Color.BLACK, OpenXum.Ordo.Color.BLACK,
 //          OpenXum.Ordo.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Ordo.GameType.STANDARD, '', '', '', false);
     OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Neutreeko, 'neutreeko', OpenXum.Neutreeko.Color.BLACK, OpenXum.Neutreeko.Color.BLACK,
-          OpenXum.Neutreeko.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Neutreeko.GameType.STANDARD, '', '', '', false);
+      OpenXum.Neutreeko.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Neutreeko.GameType.STANDARD, '', '', '', false);
   });
 </script>
 </body>
