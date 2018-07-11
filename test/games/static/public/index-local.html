@@ -25,7 +25,7 @@
             let item = $('<li>');
             let move = this.OpenXum.page.manager().build_move();
 
-            move.parse(str);
+            move.decode(str);
             item.html(move.to_string());
             item.appendTo(list);
           }
