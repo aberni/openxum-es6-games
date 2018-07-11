@@ -44,9 +44,6 @@
     }
 
     function newGame(name) {
-      if(this.OpenXum.page !== null) {
-        this.OpenXum.page.clear();
-      }
       if (name === 'abande') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Abande, 'abande', OpenXum.Abande.Color.BLACK, OpenXum.Abande.Color.BLACK,
           OpenXum.Abande.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', 0, '', '', '', false);
