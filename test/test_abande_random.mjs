@@ -1,17 +1,20 @@
-import lib from '../lib/openxum-core/openxum';
+import OpenXum from '../lib/openxum-core/index.mjs';
+import AI from '../lib/openxum-ai/index.mjs';
 
-let e = new lib.OpenXum.Abande.Engine(0, lib.OpenXum.Abande.Color.BLACK);;
-let p1 = new lib.OpenXum.RandomPlayer(lib.OpenXum.Abande.Color.BLACK, e);
-let p2 = new lib.OpenXum.MCTSPlayer(lib.OpenXum.Abande.Color.WHITE, e);
-let p3 = new lib.OpenXum.MinimaxPlayer(lib.OpenXum.Abande.Color.WHITE, e);
+let e = new OpenXum.Abande.Engine(0, OpenXum.Abande.Color.BLACK);
+let p1 = new AI.Generic.RandomPlayer(OpenXum.Abande.Color.BLACK, e);
+let p2 = new AI.Specific.Abande.MCTSPlayer(OpenXum.Abande.Color.WHITE, e);
+//let p3 = new OpenXum.MinimaxPlayer(OpenXum.Abande.Color.WHITE, e);
 let win = [];
 
-win[lib.OpenXum.Abande.Color.BLACK] = 0;
-win[lib.OpenXum.Abande.Color.WHITE] = 0;
-win[lib.OpenXum.Abande.Color.AVAILABLE] = 0;
+win[OpenXum.Abande.Color.BLACK] = 0;
+win[OpenXum.Abande.Color.WHITE] = 0;
+win[OpenXum.Abande.Color.AVAILABLE] = 0;
 
-for(let i=0;i<100;i++) {
+for(let i=  0; i < 10; i++) {
   let p = p1;
+
+  console.log(i+1);
   while (!e.is_finished()) {
     let move = p.move();
     e.move(move);
@@ -22,9 +25,9 @@ for(let i=0;i<100;i++) {
 }
 
 console.log(win);
-console.log("Random :" + win[lib.OpenXum.Abande.Color.BLACK] + " wins");
-console.log("MCTS :" + win[lib.OpenXum.Abande.Color.WHITE] + " wins");
-console.log("draw :" +win[lib.OpenXum.Abande.Color.AVAILABLE] + " draw");
+console.log("Random :" + win[OpenXum.Abande.Color.BLACK] + " wins");
+console.log("MCTS :" + win[OpenXum.Abande.Color.WHITE] + " wins");
+console.log("draw :" +win[OpenXum.Abande.Color.AVAILABLE] + " draw");
 win.fill(0);
 
 
@@ -40,9 +43,9 @@ for(let i=0;i<100;i++) {
 }
 
 console.log(win);
-console.log("Random :" + win[lib.OpenXum.Abande.Color.BLACK] + " wins");
-console.log("MinMax :" + win[lib.OpenXum.Abande.Color.WHITE] + " wins");
-console.log("draw :" +win[lib.OpenXum.Abande.Color.AVAILABLE] + " draw");
+console.log("Random :" + win[OpenXum.Abande.Color.BLACK] + " wins");
+console.log("MinMax :" + win[OpenXum.Abande.Color.WHITE] + " wins");
+console.log("draw :" +win[OpenXum.Abande.Color.AVAILABLE] + " draw");
 win.fill(0);
 
 for(let i=0;i<100;i++) {
@@ -57,7 +60,7 @@ for(let i=0;i<100;i++) {
 }
 
 console.log(win);
-console.log("MCTS :" + win[lib.OpenXum.Abande.Color.BLACK] + " wins");
-console.log("MinMax :" + win[lib.OpenXum.Abande.Color.WHITE] + " wins");
-console.log("draw :" +win[lib.OpenXum.Abande.Color.AVAILABLE] + " draw");
+console.log("MCTS :" + win[OpenXum.Abande.Color.BLACK] + " wins");
+console.log("MinMax :" + win[OpenXum.Abande.Color.WHITE] + " wins");
+console.log("draw :" +win[OpenXum.Abande.Color.AVAILABLE] + " draw");
 win.fill(0);
