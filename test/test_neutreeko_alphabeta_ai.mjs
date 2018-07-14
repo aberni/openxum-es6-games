@@ -22,7 +22,7 @@ function getNameOfAI(player) {
   return "Other";
 }
 
-for (let i = 0; i < 2; ++i) {
+for (let i = 0; i < 3; ++i) {
   e = new OpenXum.Neutreeko.Engine(OpenXum.Neutreeko.GameType.STANDARD, black);
   p1 = new AI.Specific.Neutreeko.MCTSPlayer(black, e);
   p2 = new AI.Specific.Neutreeko.AlphaBetaAI(white, e);
@@ -33,7 +33,11 @@ for (let i = 0; i < 2; ++i) {
     let move = p.move();
 
     let endTime = new Date();
-    console.log((endTime - startTime)/1000 + " seconds to get move");
+    if(e.current_color() === black) {
+      console.log("Black choice: " + move.formatted_string() +" ("+(endTime - startTime)/1000 + " s) "+getNameOfAI(p));
+    } else {
+      console.log("White choice: " + move.formatted_string() +" ("+(endTime - startTime)/1000 + " s) "+getNameOfAI(p));
+    }
 
     e.move(move);
     p = p === p1 ? p2 : p1;
@@ -48,5 +52,5 @@ for (let i = 0; i < 2; ++i) {
   }
 }
 
-console.log(getNameOfAI(p1) + ": " + black_win + " wins");
-console.log(getNameOfAI(p2) + ": " + white_win + " wins");
+console.log("Black: " + black_win + " wins (" + getNameOfAI(p1) + ")");
+console.log("White: " + white_win + " wins(" + getNameOfAI(p2) + ")");
