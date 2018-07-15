@@ -5,7 +5,6 @@ let win = [0, 0];
 for (let i = 0; i < 10; ++i) {
   let e = new OpenXum.Invers.Engine(OpenXum.Invers.GameType.STANDARD, OpenXum.Invers.Color.RED);
   let p1 = new AI.Specific.Invers.MCTSPlayer(OpenXum.Invers.Color.RED, e);
-//  let p1 = new AI.Generic.RandomPlayer(OpenXum.Invers.Color.RED, e);
   let p2 = new AI.Generic.RandomPlayer(OpenXum.Invers.Color.YELLOW, e);
   let p = p1;
 
