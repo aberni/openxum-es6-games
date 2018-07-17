@@ -34,7 +34,9 @@ QUnit.test("clone", function (assert) {
   let coordinates = new window.Neutreeko.Coordinates(1, 3);
   let color = window.Neutreeko.Color.BLACK;
   let piece = new window.Neutreeko.Piece(color,coordinates);
-  let piece_clone = piece.clone();
+  let clone = piece.clone();
 
-  assert.deepEqual(piece, piece_clone, "Cloned");
+  assert.deepEqual(piece, clone, "Cloned");
+  assert.ok(piece !== clone, "Different objects");
+  assert.ok(piece.coordinates() !== clone.coordinates(), "Coordinates are different objects");
 });

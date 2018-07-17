@@ -33,6 +33,7 @@ QUnit.test("clone", function (assert) {
   let clone = coordinates.clone();
 
   assert.deepEqual(coordinates, clone, clone.to_string()+" equals to "+coordinates.to_string());
+  assert.ok(coordinates !== clone, "Different objects");
 });
 
 QUnit.test("equals", function (assert) {

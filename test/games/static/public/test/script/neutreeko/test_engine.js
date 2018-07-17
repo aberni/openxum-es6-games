@@ -145,7 +145,18 @@ QUnit.test("clone", function (assert) {
   );
 
   engine.move(move);
-  assert.deepEqual(engine, engine.clone(), "Modified engine cloned");
+  let clone = engine.clone();
+  assert.deepEqual(engine, clone, "Modified engine cloned");
+  assert.ok(clone !== engine, "Different objects");
+
+
+  for(let i=0; i<engine._pieces.length; i++) {
+    for(let j=0; j<engine._pieces[i].length; j++) {
+      assert.ok( engine._pieces[i][j] !== clone._pieces[i][j], "_pieces["+i+"]["+j+"] are different objects");
+    }
+  }
+
+  assert.ok(engine._board !== clone._board, "_board are different objects");
 });
 
 QUnit.test("_verify_moving", function(assert) {
