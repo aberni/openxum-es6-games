@@ -46,45 +46,46 @@
     function newGame(name) {
       if (name === 'abande') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Abande, 'abande', OpenXum.Abande.Color.BLACK, OpenXum.Abande.Color.BLACK,
-          OpenXum.Abande.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', 0, '', '', '', false);
+          OpenXum.Abande.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', 0, '', '', '', false, OpenXum.ai.Specific.Abande.MCTSPlayer);
       } else if (name === 'dakapo') {
-        this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Dakapo, 'dakapo', 'Joueur 1', 'Joueur 1', 'Joueur 2', OpenXum.GameType.LOCAL_AI, '-1', 0, '', '', '', false);
+        this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Dakapo, 'dakapo', OpenXum.Dakapo.Player.PLAYER_1, OpenXum.Dakapo.Player.PLAYER_1,
+          OpenXum.Dakapo.Player.PLAYER_2, OpenXum.GameType.LOCAL_AI, '-1', 0, '', '', '', false, OpenXum.ai.Specific.Dakapo.MCTSPlayer);
       } else if (name === 'dvonn') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Dvonn, 'dvonn', OpenXum.Dvonn.Color.BLACK, OpenXum.Dvonn.Color.BLACK,
-          OpenXum.Dvonn.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Dvonn.GameType.STANDARD, '', '', '', false);
+          OpenXum.Dvonn.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Dvonn.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'gipf') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Gipf, 'gipf', OpenXum.Gipf.Color.BLACK, OpenXum.Gipf.Color.BLACK,
-          OpenXum.Gipf.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Gipf.GameType.STANDARD, '', '', '', false);
+          OpenXum.Gipf.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Gipf.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'hnefatafl') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Hnefatafl, 'hnefatafl', OpenXum.Hnefatafl.Color.BLACK, OpenXum.Hnefatafl.Color.BLACK,
-          OpenXum.Hnefatafl.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Hnefatafl.GameType.STANDARD, '', '', '', false);
+          OpenXum.Hnefatafl.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Hnefatafl.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'invers') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Invers, 'invers', OpenXum.Invers.Color.RED, OpenXum.Invers.Color.RED,
-          OpenXum.Invers.Color.YELLOW, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Invers.GameType.STANDARD, '', '', '', false);
+          OpenXum.Invers.Color.YELLOW, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Invers.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'kamisado') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Kamisado, 'kamisado', OpenXum.Kamisado.Color.BLACK, OpenXum.Kamisado.Color.BLACK,
-          OpenXum.Kamisado.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Kamisado.GameType.SIMPLE, '', '', '', false);
+          OpenXum.Kamisado.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Kamisado.GameType.SIMPLE, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'lyngk') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Lyngk, 'lyngk', OpenXum.Lyngk.Player.PLAYER_1, OpenXum.Lyngk.Player.PLAYER_1,
-          OpenXum.Lyngk.Player.PLAYER_2, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Lyngk.GameType.STANDARD, '', '', '', false);
+          OpenXum.Lyngk.Player.PLAYER_2, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Lyngk.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'manalath') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Manalath, 'manalath', OpenXum.Manalath.Color.WHITE, OpenXum.Manalath.Color.WHITE,
-          OpenXum.Manalath.Color.BLACK, OpenXum.GameType.GUI, '-1', OpenXum.Manalath.GameType.STANDARD, '', '', '', false);
+          OpenXum.Manalath.Color.BLACK, OpenXum.GameType.GUI, '-1', OpenXum.Manalath.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'mixtour') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Mixtour, 'mixtour', 0, OpenXum.Mixtour.Color.WHITE,
-          OpenXum.Mixtour.Color.BLACK, OpenXum.GameType.LOCAL_AI, '-1', 0, '', '', '', false);
+          OpenXum.Mixtour.Color.BLACK, OpenXum.GameType.LOCAL_AI, '-1', 0, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'neutreeko') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Neutreeko, 'neutreeko', OpenXum.Neutreeko.Color.BLACK, OpenXum.Neutreeko.Color.BLACK,
-          OpenXum.Neutreeko.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Neutreeko.GameType.STANDARD, '', '', '', false);
+          OpenXum.Neutreeko.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Neutreeko.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'ordo') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Ordo, 'ordo', OpenXum.Ordo.Color.BLACK, OpenXum.Ordo.Color.BLACK,
-          OpenXum.Ordo.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Ordo.GameType.STANDARD, '', '', '', false);
+          OpenXum.Ordo.Color.WHITE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Ordo.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'paletto') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Paletto, 'paletto', OpenXum.Paletto.Color.PLAYER_1, OpenXum.Paletto.Color.PLAYER_1,
-          OpenXum.Paletto.Color.PLAYER_2, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Paletto.GameType.STANDARD, '', '', '', false);
+          OpenXum.Paletto.Color.PLAYER_2, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Paletto.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       } else if (name === 'tintas') {
         this.OpenXum.page = new OpenXum.GamePage(OpenXum, OpenXum.Tintas, 'tintas', OpenXum.Tintas.Color.RED, OpenXum.Tintas.Color.RED,
-          OpenXum.Tintas.Color.BLUE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Tintas.GameType.STANDARD, '', '', '', false);
+          OpenXum.Tintas.Color.BLUE, OpenXum.GameType.LOCAL_AI, '-1', OpenXum.Tintas.GameType.STANDARD, '', '', '', false, OpenXum.ai.Generic.RandomPlayer);
       }
     }
   </script>
