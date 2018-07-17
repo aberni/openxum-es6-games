@@ -19,12 +19,15 @@ function getNameOfAI(player) {
   if(player instanceof AI.Specific.Neutreeko.AlphaBetaAI) {
     return "AlphaBetaAI";
   }
+  if(player instanceof  AI.Specific.Neutreeko.AlphaBetaPlayer) {
+    return "AlphaBetaPlayer";
+  }
   return "Other";
 }
 
-for (let i = 0; i < 3; ++i) {
+for (let i = 0; i < 5; ++i) {
   e = new OpenXum.Neutreeko.Engine(OpenXum.Neutreeko.GameType.STANDARD, black);
-  p1 = new AI.Specific.Neutreeko.AlphaBetaAI(black, e);
+  p1 = new AI.Specific.Neutreeko.AlphaBetaPlayer(black, e);
   p2 = new AI.Specific.Neutreeko.MCTSPlayer(white, e);
 
   let p = p1;
@@ -53,4 +56,4 @@ for (let i = 0; i < 3; ++i) {
 }
 
 console.log("Black: " + black_win + " wins (" + getNameOfAI(p1) + ")");
-console.log("White: " + white_win + " wins(" + getNameOfAI(p2) + ")");
+console.log("White: " + white_win + " wins (" + getNameOfAI(p2) + ")");
