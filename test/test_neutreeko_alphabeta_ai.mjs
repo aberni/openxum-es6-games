@@ -27,8 +27,8 @@ function getNameOfAI(player) {
 
 for (let i = 0; i < 5; ++i) {
   e = new OpenXum.Neutreeko.Engine(OpenXum.Neutreeko.GameType.STANDARD, black);
-  p1 = new AI.Specific.Neutreeko.AlphaBetaPlayer(black, e);
-  p2 = new AI.Specific.Neutreeko.MCTSPlayer(white, e);
+  p1 = new AI.Specific.Neutreeko.AlphaBetaAI(black, white, e);
+  p2 = new AI.Specific.Neutreeko.AlphaBetaPlayer(white, black, e);
 
   let p = p1;
   while (!e.is_finished()) {
